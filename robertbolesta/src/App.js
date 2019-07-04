@@ -1,16 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import AdminForm from './Components/AdminForm.js'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-      <p>
-          Robert Bolesta
-      </p>
-    
-      </header>
+    <div>
+      <AdminForm name='Robert'/>
     </div>
   );
 }
