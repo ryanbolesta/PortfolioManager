@@ -1,6 +1,9 @@
 {
   "name": "robertbolesta",
   "version": "0.1.0",
+  "engines": {
+    "node": "12.6.0"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.1.3",
