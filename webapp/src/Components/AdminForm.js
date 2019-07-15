@@ -6,7 +6,41 @@ import ProjectImages from './ProjectImages.js'
 import '../styles/AdminForm.css'
 
 
-class AdminForm extends React.Component {
+export default class AdminForm extends React.Component {
+
+     constructor(props){
+          super(props)
+          this.state = {
+              details: {},
+              images: []
+          }
+          this.handleInputChange = this.handleInputChange.bind(this);
+          this.handleImageChange = this.handleImageChange.bind(this);
+      }
+
+      handleInputChange(event) {
+          const target = event.target;
+          const value = target.value;
+          const name = target.name;
+          let details = this.state.details;
+          
+          details[name] = value;
+          this.setState({
+            details: details
+          });
+
+          console.log("Current state = ", this.state);
+      }
+
+      handleImageChange(images) {
+           console.log("Image list ", images);
+          this.setState({
+            images: images
+          });
+          console.log("Current image state = ", this.state);
+      }
+
+
      render() {
           return (
                <div style={{ padding: "0px 50px 70px 50px" }}>
@@ -14,7 +48,7 @@ class AdminForm extends React.Component {
                     <br />
                     <Grid
                          container
-                         spacing={3}
+                         spacing={6}
                          direction="row"
                          // justify="left"
                          // alignItems="left"
@@ -29,8 +63,9 @@ class AdminForm extends React.Component {
                                         id="project-title"
                                         label="Project Title"
                                         // className={classes.textField}
-                                        // value={values.name}
-                                        // onChange={handleChange('name')}
+                                        name="title"
+                                        value={this.state.details.title || ''}
+                                        onChange={this.handleInputChange}
                                         placeholder="Groder"
                                         margin="normal"
                                         InputLabelProps={{ shrink: true }}
@@ -48,8 +83,9 @@ class AdminForm extends React.Component {
                                                   label="Start Year"
                                                   maxLength="4"
                                                   // className={classes.textField}
-                                                  // value={values.name}
-                                                  // onChange={handleChange('name')}
+                                                  name="startYear"
+                                                  value={this.state.details.startYear || ''}
+                                                  onChange={this.handleInputChange}
                                                   // placeholder={Number.toString(new Date().getFullYear())}
                                                   margin="normal"
                                                   InputLabelProps={{ shrink: true }}
@@ -63,8 +99,9 @@ class AdminForm extends React.Component {
                                                   label="End Year"
                                                   maxLength="4"
                                                   // className={classes.textField}
-                                                  // value={values.name}
-                                                  // onChange={handleChange('name')}
+                                                  name="endYear"
+                                                  value={this.state.details.endYear || ''}
+                                                  onChange={this.handleInputChange}
                                                   // placeholder={Number.toString(new Date().getFullYear())}
                                                   margin="normal"
                                                   InputLabelProps={{ shrink: true }}
@@ -80,6 +117,9 @@ class AdminForm extends React.Component {
                                         placeholder="Dewalt Brander"
                                         multiline
                                         fullWidth
+                                        name="description"
+                                        value={this.state.details.description || ''}
+                                        onChange={this.handleInputChange}
                                         // className={classes.textField}
                                         margin="normal"
                                         InputLabelProps={{ shrink: true }}
@@ -89,7 +129,7 @@ class AdminForm extends React.Component {
                               </form>
                          </Grid>
                          <Grid item md={6}>
-                              <ProjectImages/>
+                              <ProjectImages images={this.state.images} handleChange={this.handleImageChange}/>
                               {/* <div>Image Placeholder</div> */}
                          </Grid>
                     </Grid>
@@ -100,4 +140,4 @@ class AdminForm extends React.Component {
      }
 }
 
-export default AdminForm;
+
