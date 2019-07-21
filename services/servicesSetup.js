@@ -41,6 +41,16 @@ service.use((err, req, res, next) => {
 
 routes(service);
 
+if (process.env.NODE_ENV === 'production') {
+    // Serve any static files
+    service.use(express.static(path.join(__dirname, 'client/build')));
+      
+    // Handle React routing, return all requests to React app
+    service.get('*', function(req, res) {
+      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    });
+  }
+
 // service.listen(port, () => console.log(`Listening on port ${port}`));
 
 export default service;
