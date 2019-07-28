@@ -43,7 +43,7 @@ export default class ProjectDetails extends React.Component {
                 maxLength="4"
                 name="startYear"
                 value={this.props.details.startYear || ""}
-                onChange={this.handleInputChange}
+                onChange={this.props.handleInputChange}
                 margin="normal"
                 InputLabelProps={{ shrink: true }}
                 variant="filled"
@@ -57,7 +57,7 @@ export default class ProjectDetails extends React.Component {
                 maxLength="4"
                 name="endYear"
                 value={this.props.details.endYear || ""}
-                onChange={this.handleInputChange}
+                onChange={this.props.handleInputChange}
                 margin="normal"
                 InputLabelProps={{ shrink: true }}
                 variant="filled"
@@ -74,7 +74,7 @@ export default class ProjectDetails extends React.Component {
             fullWidth
             name="description"
             value={this.props.details.description || ""}
-            onChange={this.handleInputChange}
+            onChange={this.props.handleInputChange}
             margin="normal"
             InputLabelProps={{ shrink: true }}
             variant="filled"

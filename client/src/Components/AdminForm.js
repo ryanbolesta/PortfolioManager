@@ -84,7 +84,7 @@ export default class AdminForm extends React.Component {
           <Grid item md={6}>
             <ProjectDetails
               details={this.state.details}
-              handleInputChange={this.props.handleInputChange}
+              handleInputChange={this.handleInputChange}
             />
           </Grid>
           <Grid item md={6}>
