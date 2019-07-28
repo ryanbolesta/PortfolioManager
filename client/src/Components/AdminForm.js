@@ -85,8 +85,6 @@ export default class AdminForm extends React.Component {
                          container
                          spacing={6}
                          direction="row"
-                         // justify="left"
-                         // alignItems="left"
                     >
                          
 
@@ -112,7 +110,6 @@ export default class AdminForm extends React.Component {
                                    <TextField
                                         id="client"
                                         label="Client/Location"
-                                        // className={classes.textField}
                                         name="location"
                                         value={this.state.details.location || ''}
                                         onChange={this.handleInputChange}
@@ -129,14 +126,12 @@ export default class AdminForm extends React.Component {
                                          >
                                         <Grid item sm={6}>
                                              <TextField
-                                                  // id="project-title"
+                                                  id="startYear"
                                                   label="Start Year"
                                                   maxLength="4"
-                                                  // className={classes.textField}
                                                   name="startYear"
                                                   value={this.state.details.startYear || ''}
                                                   onChange={this.handleInputChange}
-                                                  // placeholder={Number.toString(new Date().getFullYear())}
                                                   margin="normal"
                                                   InputLabelProps={{ shrink: true }}
                                                   variant="filled"
@@ -145,14 +140,12 @@ export default class AdminForm extends React.Component {
                                         </Grid>
                                         <Grid item sm={6}>
                                              <TextField
-                                                  // id="project-title"
+                                                  id="endYear"
                                                   label="End Year"
                                                   maxLength="4"
-                                                  // className={classes.textField}
                                                   name="endYear"
                                                   value={this.state.details.endYear || ''}
                                                   onChange={this.handleInputChange}
-                                                  // placeholder={Number.toString(new Date().getFullYear())}
                                                   margin="normal"
                                                   InputLabelProps={{ shrink: true }}
                                                   variant="filled"
@@ -162,7 +155,7 @@ export default class AdminForm extends React.Component {
                                    </Grid>
 
                                    <TextField
-                                        id="standard-textarea"
+                                        id="description"
                                         label="Project Description"
                                         placeholder="Dewalt Brander"
                                         multiline
@@ -170,7 +163,6 @@ export default class AdminForm extends React.Component {
                                         name="description"
                                         value={this.state.details.description || ''}
                                         onChange={this.handleInputChange}
-                                        // className={classes.textField}
                                         margin="normal"
                                         InputLabelProps={{ shrink: true }}
                                         variant="filled"
