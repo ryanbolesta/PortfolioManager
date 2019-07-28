@@ -7,9 +7,7 @@ import ThumbnailInput from './ThumbnailInput';
 export default class ProjectImages extends React.Component {
     constructor(props){
         super(props)
-        // this.state = {
-        //     files: []
-        // }
+
         this.handleChange = this.handleChange.bind(this);
         this.captionChange = this.captionChange.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
@@ -27,9 +25,6 @@ export default class ProjectImages extends React.Component {
         }
         console.log("DOne iterating files ", fileList);
         this.props.handleChange(fileList);
-        // this.setState({
-        //     files: fileList
-        // });
     }
 
     captionChange(key, caption) {

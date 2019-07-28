@@ -9,56 +9,13 @@ import "./styles/AdminForm.css";
 export default class ProjectForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      details: {},
-      images: []
-    };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleImageChange = this.handleImageChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    let details = this.state.details;
-
-    details[name] = value;
-    this.setState({
-      details: details
-    });
-
-    console.log("Current state = ", this.state);
-  }
-
-  handleImageChange(images) {
-    console.log("Image list ", images);
-    this.setState({
-      images: images
-    });
-    console.log("Current image state = ", this.state);
-  }
-
-  handleSubmit() {
-    fetch("projects", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(this.state.details)
-    })
-      .then(function(response) {
-        return response.status;
-      })
-      .then(function(status) {
-        console.log("Status is = " + status);
-      });
+    const project = this.props.project;
+    console.log("Project is ", project)
   }
 
   render() {
     return (
-      <div style={{ padding: "0px 50px 70px 50px" }}>
+      <div style={{ padding: "50px 50px 70px 50px" }}>
         <h1>
           Hello {this.props.name}. Welcome to the back end of your website.
         </h1>
@@ -66,24 +23,28 @@ export default class ProjectForm extends React.Component {
         <Grid container spacing={6} direction="row">
           <Grid item md={6}>
             <ProjectDetails
-              details={this.state.details}
-              handleInputChange={this.handleInputChange}
+              details={this.props.details}
+              handleInputChange={this.props.handleInputChange}
             />
           </Grid>
           <Grid item md={6}>
             <ProjectImages
-              images={this.state.images}
-              handleChange={this.handleImageChange}
+              images={this.props.images}
+              handleChange={this.props.handleImageChange}
             />
-            {/* <div>Image Placeholder</div> */}
           </Grid>
         </Grid>
 
         <Grid container spacing={10}>
           <Grid item xs={12} align="center">
-            <Button variant="contained" onClick={this.handleSubmit}>
+          {this.props.new && <Button variant="contained" onClick={this.props.handleSubmit} disabled={!this.props.new}>
               Submit
             </Button>
+          }
+          {!this.props.new && <Button variant="contained" color="secondary" onClick={this.props.handleDelete} >
+            Delete
+          </Button>
+          }
           </Grid>
         </Grid>
       </div>

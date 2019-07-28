@@ -20,10 +20,6 @@ const useStyles = makeStyles(theme => ({
 export default function UploadImages(props) {
   const classes = useStyles();
 
-//   function handleChange(event) {
-//       this.props.on
-//   }
-
   return (
     <span>
         <input
