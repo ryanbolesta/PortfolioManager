@@ -4,7 +4,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Grid from "@material-ui/core/Grid";
-import "../styles/AdminForm.css";
+import "./styles/AdminForm.css";
 
 export default class ThumbnailInput extends Component {
   constructor(props) {

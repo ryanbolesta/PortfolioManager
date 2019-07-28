@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import AdminForm from './Components/AdminForm.js'
+import AdminPage from './Components/Admin/AdminPage.js';
 
 function App() {
   return (
     <div>
-      <AdminForm name='Robert'/>
+      <AdminPage/>
     </div>
   );
 }
