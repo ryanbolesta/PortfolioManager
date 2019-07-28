@@ -30,35 +30,43 @@ export default class ThumbnailInput extends Component {
 
   render() {
     return (
-      <div>
-        <TextField
-          label="Caption"
-          // className={classes.textField}
-          value={this.props.image.caption || ''}
-          onChange={this.handleChange}
-          placeholder="Add optional caption"
-          margin="normal"
-          InputLabelProps={{ shrink: true }}
-          variant="filled"
-          multiline
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position={"end"}>
-                <IconButton onClick={this.handleDelete} aria-label="Delete" title="Remove image">
-                  <DeleteIcon fontSize="small" />
-                </IconButton>
-              </InputAdornment>
-            )
-          }}
-        />
-        <img
-          className="inputThumbnail marginNormal"
-          src={this.props.image.url}
-          alt="No Thumbnail"
-        />
-
-        {/* </Grid> */}
-      </div>
+      <>
+        <Grid container direction="row">
+          <Grid item xs={10}>
+            <TextField
+              label="Caption"
+              value={this.props.image.caption || ""}
+              onChange={this.handleChange}
+              placeholder="Add optional caption"
+              margin="normal"
+              InputLabelProps={{ shrink: true }}
+              variant="filled"
+              multiline
+              fullWidth
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position={"end"}>
+                    <IconButton
+                      onClick={this.handleDelete}
+                      aria-label="Delete"
+                      title="Remove image"
+                    >
+                      <DeleteIcon fontSize="small" />
+                    </IconButton>
+                  </InputAdornment>
+                )
+              }}
+            />
+          </Grid>
+          <Grid item xs={2}>
+            <img
+              className="inputThumbnail marginNormal"
+              src={this.props.image.url}
+              alt="No Thumbnail"
+            />
+          </Grid>
+        </Grid>
+      </>
     );
   }
 }
