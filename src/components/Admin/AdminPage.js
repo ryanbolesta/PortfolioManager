@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Grid from "@material-ui/core/Grid";
 import ProjectForm from "./ProjectForm.js";
 import ResponsiveDrawer from "../ResponsiveDrawer.js"
+import SignOutButton from "../SignOut";
+import {BrowserRouter as Router} from "react-router-dom";
 
 
 export default class AdminPage extends Component {
@@ -126,7 +128,8 @@ export default class AdminPage extends Component {
                                          />
         return (
           <>
-            <ResponsiveDrawer projects={this.state.projects} 
+              <SignOutButton/>
+              <ResponsiveDrawer projects={this.state.projects}
                               projectIndex={this.state.projectIndex} 
                               handleProjectChange={this.handleProjectChange} 
                               projectForm={projectForm}
